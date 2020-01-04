@@ -1,0 +1,21 @@
+{% import "bootstrap/wtf.html" as wtf %} {% extends "base.html" %} {% block title %}Sửa nhân viên{% endblock %} {% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <div class="center">
+                    <h1> Sửa thông tin danh bạ </h1>
+                    <br/>
+                    <p>
+                        Sửa thông tin trong danh bạ cho
+                        <span style="color: #007ee5;">
+                    {{ contact.last_name }} {{ contact.first_name }}
+                </span>
+                    </p>
+                    <br/> {{ wtf.quick_form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Trang chủ Admin{% endblock %} {% block body %}
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Trang chủ</h1>
+                    <h3>Quản lý nhân viên</h3>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('admin.list_employees') }}" id="db">Dữ liệu nhân viên</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

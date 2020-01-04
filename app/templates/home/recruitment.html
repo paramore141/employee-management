@@ -1,0 +1,43 @@
+{% import "bootstrap/utils.html" as utils %} {% extends "base.html" %} {% block title %}Báo cáo{% endblock %} {% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <br/>
+                <h1 style="text-align:center;">Danh sách ứng tuyển</h1>
+                {% if cvs %}
+                <hr class="intro-divider">
+                <div class="center">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="20%" style="text-align:center"> Ứng viên </th>
+                                <th width="25%" style="text-align:center"> Email </th>
+                                <th width="25%" style="text-align:center"> Vị trí </th>
+                                <th width="20%" style="text-align:center"> Trạng thái </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cv in cvs %}
+                            <tr>
+                                <td> <a href="{{ url_for('home.download_file', filename=cv.cv_file) }}"> {{ cv.name }}</a> </td>
+                                <td> {% if cv.email %} {{ cv.email }} {% else %} - {% endif %}</td>
+                                <td> {% if cv.apply_position %} {{ cv.apply_position }} {% else %} - {% endif %}</td>
+                                <td> {{ cv.status }} </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: center">
+                    {% else %}
+                    <div style="text-align: center">
+                        <h3> Chưa có báo cáo nào. </h3>
+                        <hr class="intro-divider"> {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

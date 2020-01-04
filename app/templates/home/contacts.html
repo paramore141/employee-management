@@ -1,0 +1,62 @@
+{% import "bootstrap/utils.html" as utils %} {% extends "base.html" %} {% block title %}Nhân viên{% endblock %} {% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <br/> {{ utils.flashed_messages() }}
+                <br/>
+                <h1 style="text-align:center;">Danh bạ</h1>
+                {% if employees %}
+                <hr class="intro-divider">
+                <div class="center">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="20%" style="text-align:center"> Tên </th>
+                                <th width="20%" style="text-align:center"> Phòng ban </th>
+                                <th width="20%" style="text-align:center"> Vị trí </th>
+                                <th width="20%" style="text-align:center"> Email </th>
+                                <th width="20%" style="text-align:center"> Số điện thoại </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for employee in employees %} {% if employee.is_admin %}
+                            <!--<tr style="background-color: #007ee5; color: white;">
+                                <td> <i class="fa fa-key"></i> Admin </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                                <td> N/A </td>
+                            </tr>-->
+                            {% else %}
+                            <tr>
+                                <td> {{ employee.last_name }} {{ employee.first_name }} </td>
+                                <td>
+                                    {% if employee.department %} {{ employee.department.name }} {% else %} - {% endif %}
+                                </td>
+                                <td>
+                                    {% if employee.position %} {{ employee.position }} {% else %} - {% endif %}
+                                </td>
+                                <td>
+                                    {% if employee.email %} <a href="mailto:{{employee.email}}">  {{employee.email}}</a>{% else %} - {% endif %}
+                                </td>
+                                <td>
+                                    {% if employee.mobile %} {{ employee.mobile }} {% else %} - {% endif %}
+                                </td>
+
+                            </tr>
+                            {% endif %} {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% endif %}
+
+
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

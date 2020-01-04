@@ -1,0 +1,58 @@
+{% import "bootstrap/utils.html" as utils %} {% extends "base.html" %} {% block title %}Phòng ban{% endblock %} {% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <br/> {{ utils.flashed_messages() }}
+                <br/>
+                <h1 style="text-align:center;">Phòng ban</h1>
+                {% if departments %}
+                <hr class="intro-divider">
+                <div class="center">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="25%" style="text-align:center"> Tên </th>
+                                <th width="25%" style="text-align:center"> Miêu tả </th>
+                                <th width="20%" style="text-align:center"> Số nhân viên </th>
+                                <th width="15%" style="text-align:center"> Sửa </th>
+                                <th width="15%" style="text-align:center"> Xóa </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for department in departments %}
+                            <tr>
+                                <td> {{ department.name }} </td>
+                                <td> {{ department.description }} </td>
+                                <td style="text-align:center">
+                                    {% if department.employees %} {{ department.employees.count() }} {% else %} 0 {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin.edit_department', id=department.id) }}" class="green">
+                                        <i class="fa fa-pencil "></i> Sửa
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin.delete_department', id=department.id) }}" class="red">
+                                        <i class="fa fa-trash"></i> Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: center">
+                    {% else %}
+                    <div style="text-align: center">
+                        <h3> Chưa có phòng ban nào. </h3>
+                        <hr class="intro-divider"> {% endif %}
+                        <a href="{{ url_for('admin.add_department') }}" class="btn btn-default btn-lg">
+                            <i class="fa fa-plus"></i> Thêm phòng ban
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

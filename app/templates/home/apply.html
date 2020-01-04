@@ -1,0 +1,33 @@
+{% import "bootstrap/utils.html" as utils %} {% extends "base.html" %} {% block title %} {% if add_report %} Thêm báo cáo {% else %} Sửa tên báo cáo {% endif %} {% endblock %} {% block body %}
+<div class="content-section">
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                    <br/> {{ utils.flashed_messages() }}
+                    <br/>
+                    <h1 style="text-align:center;"> Tuyển dụng Công ty Bytesoft </h1>
+                                <hr class="intro-divider">
+                    <div class="center">
+                        <div style="text-align:justify;"> <p>Hiện tại, công ty đang có một số vị trí ứng tuyển, cụ thể như sau:</p>
+                            <p><strong>1. Blockchain Developer (~1500$)</strong></p>
+                            <p><strong>2. Bigdata/ AI Developer (~1500$)</strong></p>
+                            <p><strong>3. Thiết kế đồ họa (~600$)</strong></p>
+                            <p>💥Những phúc lợi hấp dẫn đi kèm:</p>
+                            <p>💰 Môi trường làm việc trẻ, năng động, chuyên nghiệp, phát huy khả năng sáng tạo và lợi thế của bản thân.</p>
+                            <p>💰 Hưởng đầy đủ các quyền lợi theo quy định của Nhà nước (BHXH, BHYT...)</p>
+                            <p>💰 Được tham gia các hoạt động team Building, dã ngoại, các hoạt động mang tính cộng đồng.</p>
+                            <p>💰 Du lịch hàng năm với các địa điểm siêu hấp dẫn từ bắc và nam, được trải nghiệm cùng đồng đội những món ăn đặc sản, thú vị.</p>
+                            <p>💰 Tham gia vào các phong trào văn hóa nội bộ với lối sống ưu tiên phát triển toàn diện hướng tới một cuộc sống cân bằng giữa công việc, sức khỏe, và các mối quan hệ Ngoài ra còn rất nhiều các quyền lợi đặc biệt khác đang chờ đón bạn. Còn chần chừ gì mà không apply ngay nào.</p></div>
+                        <hr class="intro-divider">
+                        <div style="text-align:center;">
+                        <a style="text-align:center;" href="{{ url_for('home.add_apply') }}" class="btn btn-default btn-lg">
+                            <i class="fa fa-plus"></i> Nộp đơn ứng tuyển
+                        </a> </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

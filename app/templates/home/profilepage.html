@@ -1,0 +1,38 @@
+{% import "bootstrap/utils.html" as utils %}{% extends "base.html" %} {% block title %}View Profile{% endblock %} {% block body %}
+                <br> <br>
+    <br>{{ utils.flashed_messages() }}
+    <div id="mainwrap">
+    <img src="../../static/img/avatar.png" id="avatar">
+    <p id="cname">{{current_user.last_name}} {{current_user.first_name}}</p>
+    <p id="cusername" class="textcontent">@{{current_user.username}}</p>
+    <br>
+    <div> <span id="mail"><i class="fa fa-envelope"></i><a href="mailto:{{current_user.email}}">  {{current_user.email}}</a></span></div>
+
+    <div> <span id="roles"></i> Chức vụ: {{current_user.role}}</span></div>
+
+    <div> <span id="depart"></i> Phòng ban: {{current_user.department}}</span></div>
+
+    <div> <span id="depart"></i> Ngày sinh: {{current_user.birthday}}</span></div>
+
+    <div> <span id="depart"></i> Điện thoại {{current_user.mobile}}</span></div>
+
+    <div> <span id="depart"></i> Vị trí: {{current_user.position}}</span></div>
+
+    <div> <span id="depart"></i> Học vấn: {{current_user.education}}</span></div>
+
+    <div> <span id="depart"></i> Nơi đào tạo: {{current_user.education_place}}</span></div>
+
+    <div> <span id="depart"></i> Ngày vào công ty: {{current_user.entry_date}}</span></div>
+
+    <div> <span id="depart"></i> Ngày chính thức: {{current_user.official_date}}</span></div>
+
+    <div> <span id="depart"></i> Địa chỉ: {{current_user.address}}</span></div>
+    <br>
+                <div style="text-align: center">
+
+                        <a href="{{ url_for('home.edit_information') }}" class="btn btn-default btn-lg">
+                            <i class="fa fa-plus"></i> Thay đổi thông tin</a>
+                </div>
+    </div>
+
+{% endblock %}

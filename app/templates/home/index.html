@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block body %}
+<p id="message">
+    Phần mềm quản lý nhân viên cho phép quản lý nhân viên theo phòng, ban, cung cấp khả năng tìm kiếm, nộp báo cáo, hồ sơ ứng tuyển... chỉ bằng một vài cú nhấp chuột.
+</p>
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Quản lý nhân viên</h1>
+                    <h3>Quản lý nhân viên theo cách thuận tiện nhất</h3>
+                    </ul>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('auth.register') }}" id="out">Đăng ký</a>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('auth.login') }}" id="in">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
